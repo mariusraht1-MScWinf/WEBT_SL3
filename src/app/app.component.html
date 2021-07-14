@@ -1,3 +1,36 @@
-<app-header></app-header>
-<app-dashboard></app-dashboard>
-<router-outlet></router-outlet>
+<div style="text-align:center">
+    <h1 class="ui header" style="margin: 30px">
+      Welcome to {{ title }}!
+    </h1>
+     <!-- logo -->
+     <nav class="navbar">
+     <div class="navbar-brand">
+        <a class="navbar-item">
+          <img src="assets/img/funny.jpg">
+        </a>
+      </div>
+    </nav>
+  
+    <div class="ui three item menu">
+      <a class="item" routerLink="/terminology" routerLinkActive="active">
+        Übersicht
+      </a>
+      <a class="item" routerLink="/terminology-add" routerLinkActive="active">
+        Eintrag Hinzufügen
+      </a>
+     
+              
+     <div>
+            <app-header></app-header>
+      </div>
+       
+      <div>
+      <app-dashboard></app-dashboard>
+      </div>
+     
+
+<div>
+    <router-outlet></router-outlet>
+  </div>
+
+
