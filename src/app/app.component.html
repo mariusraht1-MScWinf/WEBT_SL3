@@ -1,26 +1,17 @@
-<div style="text-align:center">
-    <h1 class="ui header" style="margin: 30px">
-      Welcome to {{ title }}!
-    </h1>
-     <!-- logo -->
-     <nav class="navbar">
-     <div class="navbar-brand">
-        <a class="navbar-item">
-          <img src="assets/img/funny.jpg">
-        </a>
-      </div>
-    </nav>
-</div>
-    <div class="ui two item menu">
-      <a class="item" routerLink="/terminology" routerLinkActive="active">
-        Übersicht
-      </a>
-      <a class="item" routerLink="/terminology-add" routerLinkActive="active">
-        Eintrag Hinzufügen
-      </a>
-    </div>
-              
-      <app-header></app-header>
+   
+<header class="p-5 bg-dark text-white">
+<h1 class="text-center">Welcome to {{ title }}!</h1>       
+  <img src="assets/img/funny.jpg" style="width: 200px;"/>
+</header>
+   <nav class="nav justify-content-center bg-light">
+        <li class="nav-item">
+          <a class="nav-link"  href="#">Übersicht</a>
+        </li>
+         <li class="nav-item">
+          <a class="nav-link" href="#">Eintrag Hinzufügen</a>
+        </li>
+   </nav>
+       <app-header></app-header>
      
       <app-dashboard></app-dashboard>
      
@@ -28,3 +19,4 @@
   
 
 
+      
