@@ -1,1 +1,13 @@
-<p>terminology works!</p>
+<div class="ui form">
+  <div *ngIf="terminology" style="padding: 50px">
+    <h4 style="text-align: left">{{ terminology.title }}</h4>
+    <div style="text-align: left">
+      <div class="field">
+        <label>Beschreibung:</label>
+        <div class="field">
+          <input [(ngModel)]="terminology.desc" placeholder="Description" />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

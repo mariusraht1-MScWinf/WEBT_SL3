@@ -7,7 +7,7 @@ import { Terminology } from '../shared/terminology';
   styleUrls: ['./terminology.component.css'],
 })
 export class TerminologyComponent implements OnInit {
-  @Input() lecture: Terminology | undefined;
+  @Input() terminology: Terminology | undefined;
   constructor() {}
 
   ngOnInit(): void {}

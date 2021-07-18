@@ -22,22 +22,22 @@ export enum chapter {
 export const TERMINOLOGIES: Terminology[] = [
     {
       id: 'abc',
-      title: 'Begriff',
-      desc: 'Lorem Ipsum etc',
+      title: 'HTML',
+      desc: 'HyperText Markup Language',
       chapter: chapter.HTML,
       creator: 'Me'
     },
     {
       id: 'def',
-      title: 'Begriff',
+      title: 'Client-Server-Prinzip',
       desc: 'Lorem Ipsum etc',
       chapter: chapter.Web,
       creator: 'Me'
     },
     {
       id: 'ghi',
-      title: 'Begriff',
-      desc: 'Lorem Ipsum etc',
+      title: 'CSS',
+      desc: 'Cascading Style Sheets',
       chapter: chapter.CSS,
       creator: 'Me'
     }
