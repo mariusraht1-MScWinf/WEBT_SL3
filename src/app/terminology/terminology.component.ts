@@ -1,15 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Terminology } from '../shared/terminology';
 
 @Component({
-  selector: 'app-terminology',
+  selector: 'a.app-terminology',
   templateUrl: './terminology.component.html',
-  styleUrls: ['./terminology.component.css']
+  styleUrls: ['./terminology.component.css'],
 })
 export class TerminologyComponent implements OnInit {
+  @Input() lecture: Terminology | undefined;
+  constructor() {}
 
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void {}
 }

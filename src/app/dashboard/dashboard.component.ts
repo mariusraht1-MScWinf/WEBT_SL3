@@ -5,15 +5,17 @@ import { TerminologyService } from '../shared/terminology.service';
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.css']
+  styleUrls: ['./dashboard.component.css'],
 })
 export class DashboardComponent implements OnInit {
   terminologies: Terminology[] = TERMINOLOGIES;
+  selectedTerminology: Terminology | undefined;
 
-  constructor(private ts: TerminologyService) { }
+  constructor(private ts: TerminologyService) {}
 
-  ngOnInit(): void {
-
+  onSelect(terminology: Terminology): void {
+    this.selectedTerminology = terminology;
   }
 
+  ngOnInit(): void {}
 }

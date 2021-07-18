@@ -24,7 +24,21 @@ export const TERMINOLOGIES: Terminology[] = [
       id: 'abc',
       title: 'Begriff',
       desc: 'Lorem Ipsum etc',
+      chapter: chapter.HTML,
+      creator: 'Me'
+    },
+    {
+      id: 'def',
+      title: 'Begriff',
+      desc: 'Lorem Ipsum etc',
       chapter: chapter.Web,
+      creator: 'Me'
+    },
+    {
+      id: 'ghi',
+      title: 'Begriff',
+      desc: 'Lorem Ipsum etc',
+      chapter: chapter.CSS,
       creator: 'Me'
     }
     // ... and so on
