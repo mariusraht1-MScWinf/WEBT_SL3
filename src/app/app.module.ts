@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { TerminologyComponent } from './terminology/terminology.component';
+import { TerminologyAddComponent } from './terminology-add/terminology-add.component';
 
 @NgModule({
   declarations: [
@@ -14,6 +15,7 @@ import { TerminologyComponent } from './terminology/terminology.component';
     HeaderComponent,
     DashboardComponent,
     TerminologyComponent,
+    TerminologyAddComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule],
   providers: [],
