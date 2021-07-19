@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { TerminologyService } from '../shared/terminology.service';
 import { Terminology } from '../shared/terminology';
-import { Eintrag } from '@angular/common';
+
 
 @Component({
   selector: 'app-terminology-add',
@@ -9,6 +9,8 @@ import { Eintrag } from '@angular/common';
   styleUrls: ['./terminology-add.component.css']
 })
 export class TerminologyAddComponent implements OnInit {
+
+  kapitels: Kapitel[] = [];
 
   constructor() { }
 
