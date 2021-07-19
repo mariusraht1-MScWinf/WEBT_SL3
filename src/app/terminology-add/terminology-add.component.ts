@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { TerminologyService } from '../shared/terminology.service';
+import { Terminology } from '../shared/terminology';
+import { Eintrag } from '@angular/common';
 
 @Component({
   selector: 'app-terminology-add',
@@ -13,3 +16,4 @@ export class TerminologyAddComponent implements OnInit {
   }
 
 }
+
