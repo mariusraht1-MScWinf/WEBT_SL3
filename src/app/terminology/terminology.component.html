@@ -6,8 +6,29 @@
         <label>Beschreibung:</label>
         <div class="field">
           <input [(ngModel)]="terminology.desc" placeholder="Description" />
+          <div class="field">
+            <label>Fachbegriff*:</label>
+            <div class="field">
+            <input [(ngModel)]="terminology.title" placeholder="Title" />
+        </div>
+      </div>
+        <div class="field">
+            <label>Name des Autors*:</label>           
+            <div class="field">
+            <input [(ngModel)]="terminology.creator" placeholder="Creator" />
+            </div>
+        </div>
+        <div class="field">
+            <label>Kapitel*:</label> 
+            <div class="field">
+            <input [(ngModel)]="terminology.chapter" placeholder="Chapter" />
+            </div>
         </div>
       </div>
     </div>
   </div>
-</div>
+     </div>   
+     
+    </div>
+     
+
