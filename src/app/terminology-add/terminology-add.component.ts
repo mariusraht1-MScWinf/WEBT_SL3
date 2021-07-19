@@ -9,7 +9,7 @@ import { Terminology } from '../shared/terminology';
   styleUrls: ['./terminology-add.component.css']
 })
 export class TerminologyAddComponent implements OnInit {
-
+terminologies: Terminology [] = [];
   
 
   constructor() { }
