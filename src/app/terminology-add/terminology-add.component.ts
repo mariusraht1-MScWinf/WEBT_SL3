@@ -10,7 +10,7 @@ import { Terminology } from '../shared/terminology';
 })
 export class TerminologyAddComponent implements OnInit {
 
-  kapitels: Kapitel[] = [];
+  
 
   constructor() { }
 
