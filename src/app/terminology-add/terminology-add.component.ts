@@ -12,10 +12,20 @@ export class TerminologyAddComponent implements OnInit {
 terminologies: Terminology [] = [];
   
 
-  constructor() { }
+constructor(
+  
+) {}
 
-  ngOnInit(): void {
-  }
+ngOnInit() {
 
 }
+
+
+}
+
+
+    
+
+
+
 
