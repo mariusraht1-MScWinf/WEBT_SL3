@@ -1,27 +1,27 @@
 
-<form class="ui form">
+<form #termForm="ngForm">
     <div style="padding: 50px;">
         <h4 style="text-align:left"> Eintrag hinzufügen/ändern</h4>
         <div style="text-align:left;">
-            <div class="field">
+            <div class="form-group">
                 <label>Fachbegriff*:</label>
-                <div class="field">
+                <div type="text" name="fachbegriff" class="form-control" ngModel>
                 <input #terminologyTitle placeholder="Fachbegriff" />
             </div>
         </div>
-            <div class="field">
+            <div class="form-group">
                 <label>Beschreibung*:</label> 
                  <div class="field">
                   <input #terminologyDesc placeholder="Beschreibung" />
                 </div>
              </div>
-            <div class="field">
+            <div class="form-group">
                 <label>Name des Autors*:</label>           
                 <div class="field">
                 <input #terminologyCreator placeholder="Name des Autors" />
                 </div>
             </div>
-            <div class="field">
+            <div class="form-group">
                 <label>Kapitel*:</label> 
                 <div class="field">
                 <input #terminologyChapter placeholder="Kapitel" />
