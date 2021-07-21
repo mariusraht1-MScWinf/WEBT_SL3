@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Terminology } from '../shared/terminology';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'a.app-terminology',
