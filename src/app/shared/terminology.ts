@@ -1,3 +1,4 @@
+
 export interface Terminology {
     id: string,
     title: string,
@@ -7,7 +8,7 @@ export interface Terminology {
 }
 
 export enum chapter {
-    Web = 'Das Web', 
+    Web = 'Das Web',
     HTML = 'HTML',
     CSS = 'CSS',
     Client_Side_Scripting_1 = 'JavaScript, DOM, AJAX',
@@ -41,5 +42,7 @@ export const TERMINOLOGIES: Terminology[] = [
       chapter: chapter.CSS,
       creator: 'Me'
     }
+
+
     // ... and so on
   ]
