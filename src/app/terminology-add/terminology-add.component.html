@@ -5,7 +5,7 @@
         <div style="text-align:left;">
             <div class="form-group">
                 <label>Fachbegriff*:</label>
-                <div type="text" name="fachbegriff" class="form-control" ngModel>
+                <div class="field">
                 <input #terminologyTitle placeholder="Fachbegriff" />
             </div>
         </div>
@@ -28,8 +28,13 @@
                 </div>
             </div>
          </div>   
-         <button type="button" mdbBtn color="success" mdbWavesEffect>Sichern</button>
-         <button type="button" mdbBtn color="success" mdbWavesEffect>Abbrechen</button>
+         <button type="button" mdbBtn color="success" mdbWavesEffect (click)="sichern(
+            terminologyTitle.value, 
+            terminologyDesc.value, 
+            terminologyCreator.value, 
+            terminologyChapter.value )">Sichern
+         </button>
+         <button type="button" mdbBtn color="success" mdbWavesEffect *ngIf="fieldsEmpty==true">Abbrechen</button>
     </div>
 
 </form>

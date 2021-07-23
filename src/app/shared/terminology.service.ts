@@ -6,6 +6,7 @@ import { Terminology, TERMINOLOGIES } from './terminology';
   providedIn: 'root'
 })
 export class TerminologyService {
+  addTerminology: any;
   constructor() { }
   // private data store to save current Terminologies
   private terminologyData = TERMINOLOGIES;
@@ -25,6 +26,8 @@ export class TerminologyService {
     this.terminologyData.push(term);
     this.terminologyObs.next(this.terminologyData);
   }
+  
+  } 
 
   // TBD: other functions like edit and delete
-}
+
