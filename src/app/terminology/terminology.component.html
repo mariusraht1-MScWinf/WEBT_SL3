@@ -12,21 +12,14 @@
   </div>
  *//</div>   -->
 
-<div class="container">
-    <div class="row">
-      <div class="col">Kapitel</div>
-      <div class="col">Begriff</div>
-      <div class="col">Beschreibung</div>
-      <div class="col">Erstellt von</div>
-    </div>
 
-    <div *ngIf="terminology">
-    <div class="row">
+
+
+    <div class="row" *ngIf="terminology" [style.background-color]="chapterColor(terminology.chapter)">
       <div class="col">{{ terminology.chapter }}</div>
       <div class="col">{{ terminology.title }}</div>
       <div class="col">{{ terminology.desc }}</div>
       <div class="col">{{ terminology.creator }}</div>
+      <div class="col"> <a href="#"> Editieren </a> <a href ="#" class="text-danger">&times; </a></div>
     </div>
-    </div>
-  </div>
 
