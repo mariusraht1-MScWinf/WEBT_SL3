@@ -18,15 +18,20 @@ let terminologySchema = new mongoose.Schema({
 
 const Terminology = mongoose.model('Terminology', terminologySchema );
 
-function genId() {
-  return Terminology.find().exec().length  + 1;
+async function genId() {
+  let max = 0;
+  await Terminology.find().sort('-id').exec(function (err, item) {
+    max = item.id;
+  });
+
+  return await max + 1;
 }
 
 // Get all Terminologies
-app.get("/api/terminologies",  (req,res) => {
+app.get("/api/terminologies",  async (req,res) => {
 try {
   console.log("HelloWord");
-  var result =  Terminology.find().exec();
+  var result = await Terminology.find().exec();
   res.send(result);
 } catch (error) {
   console.log(error);
@@ -35,11 +40,12 @@ try {
 
 });
 // add terminology
-app.post("/api/terminologies", (req, res) => {
+app.post("/api/terminologies", async (req, res) => {
   try {
-    console.log("bla post")
     console.log(req.body);
-    req.body.id = genId();
+    var last = await Terminology.find().sort('-id').exec();
+    var nextId = last === undefined ? 1 : last[0].id + 1;
+    req.body["id"] = nextId;
     var terminology = new Terminology(req.body);
     var result = terminology.save();
     res.send(result);
@@ -50,9 +56,9 @@ app.post("/api/terminologies", (req, res) => {
 } );
 
 // update terminology
-app.put("/api/terminologies/:id", (req, res) => {
+app.put("/api/terminologies/:id", async (req, res) => {
   try {
-    var result =  Terminology.findByIdAndUpdate(req.params.id, req.body).exec();
+    var result = await Terminology.findByIdAndUpdate(req.params.id, req.body).exec();
     res.send(result);
   }
   catch(error) {
@@ -60,9 +66,9 @@ app.put("/api/terminologies/:id", (req, res) => {
   }
 } );
 // delete terminology
-app.delete("/api/terminologies/:id", (req, res) => {
+app.delete("/api/terminologies/:id", async (req, res) => {
   try {
-    var result = Terminology.deleteOne({_id:req.params.id}).exec();
+    var result = await Terminology.deleteOne({_id:req.params.id}).exec();
     res.send(result);
   }
   catch(error) {
@@ -71,9 +77,9 @@ app.delete("/api/terminologies/:id", (req, res) => {
 } );
 
 //get one terminology
-app.get("/api/terminologies/:id",  (req, res) => {
+app.get("/api/terminologies/:id", async (req, res) => {
   try {
-    var result =  Terminology.findById(req.params.id).exec();
+    var result = await Terminology.findById(req.params.id).exec();
     res.send(result);
   }
   catch(error) {
