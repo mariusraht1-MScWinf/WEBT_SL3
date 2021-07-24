@@ -24,6 +24,9 @@ export class TerminologyService {
 
   // external observer for components to subscribe
   currentTerminology = this.terminologyObs.asObservable();
+  changeTerminology() {
+    this.terminologyObs.next();
+  }
 
   // return Observable to compontents that want to subscribe
   getTerminologies(): Observable<Terminology[]> {

@@ -1,6 +1,7 @@
+import { TerminologyService } from './../shared/terminology.service';
 import { Terminology, chapter } from './../shared/terminology';
-import { Component, Input, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { Component, Input, OnInit, Output } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'div.terminology',
@@ -9,9 +10,18 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class TerminologyComponent implements OnInit {
   @Input() terminology: Terminology | undefined;
-  constructor() {}
+  terminologies: Terminology[] = [];
+  constructor(private terminologyService: TerminologyService, private router: Router) {}
 
-  ngOnInit(): void {}
+
+  ngOnInit() {
+    this.getTerminologies();
+  }
+
+  getTerminologies():void {
+    this.terminologyService.getTerminologies()
+    .subscribe(terminologies => this.terminologies = terminologies);
+  }
 
 
    chapterColor (chapterC: chapter): string {
@@ -47,5 +57,9 @@ export class TerminologyComponent implements OnInit {
     }
 
 
+  }
+  delete(terminology: Terminology): void {
+    this.terminologies = this.terminologies.filter(t => t !== terminology);
+    this.terminologyService.deleteTerminology(terminology).subscribe(()=>this.terminologyService.changeTerminology());
   }
 }

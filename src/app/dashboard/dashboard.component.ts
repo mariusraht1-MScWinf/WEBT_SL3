@@ -11,7 +11,9 @@ export class DashboardComponent implements OnInit {
   terminologies: Terminology[] = []; // TERMINOLOGIES;
   selectedTerminology: Terminology | undefined;
 
-  constructor(private ts: TerminologyService) {}
+  constructor(private ts: TerminologyService) {
+    ts.currentTerminology.subscribe(()=> this.getTerminologies());
+  }
 
   onSelect(terminology: Terminology): void {
     this.selectedTerminology = terminology;

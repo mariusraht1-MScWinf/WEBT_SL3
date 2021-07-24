@@ -1,25 +1,9 @@
-<!-- <div class="ui form">
-  <div *ngIf="terminology" style="padding: 50px">
-    <h4 style="text-align: left">{{ terminology.title }}</h4>
-    <div style="text-align: left">
-      <div class="field">
-        <label>Beschreibung:</label>
-        <div class="field">
-          <input [(ngModel)]="terminology.desc" placeholder="Description" />
-      </div>
-      </div>
-    </div>
-  </div>
- *//</div>   -->
-
-
-
 
     <div class="row" *ngIf="terminology" [style.background-color]="chapterColor(terminology.chapter)">
       <div class="col">{{ terminology.chapter }}</div>
       <div class="col">{{ terminology.title }}</div>
       <div class="col">{{ terminology.desc }}</div>
       <div class="col">{{ terminology.creator }}</div>
-      <div class="col"> <a  routerLink="/terminology-edit/{{terminology.id}}"> Editieren </a> <a href ="#" class="text-danger">&times; </a></div>
+      <div class="col"> <a  routerLink="/terminology-edit/{{terminology.id}}"> Editieren</a><button type = "button"  (click)=delete(terminology) class="btn btn-danger">&times; </button></div>
     </div>
 
