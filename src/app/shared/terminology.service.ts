@@ -34,7 +34,8 @@ export class TerminologyService {
   }
 
   getTerminology(id:number):Observable<Terminology> {
-    const url = '${this.terminologyUrl}/${id}';
+    //const url = "${this.terminologyUrl}/${id}";
+    const url = this.terminologyUrl+"/"+id;
     return this.http.get<Terminology>(url)
     .pipe(catchError(this.handleError<Terminology>('getTerminology id=${id}')))
   }
@@ -73,7 +74,8 @@ export class TerminologyService {
   }
   deleteTerminology(terminology:Terminology | number): Observable<Terminology> {
     const id = typeof terminology === 'number' ? terminology: terminology.id;
-    const url = '${this.terminologyUrl}/${id}';
+    //const url = '${this.terminologyUrl}/${id}';
+    const url = this.terminologyUrl+"/"+id;
     return this.http.delete<Terminology>(url, httpOptions)
     .pipe(catchError(this.handleError<Terminology>('deleteTerminology')))
   }

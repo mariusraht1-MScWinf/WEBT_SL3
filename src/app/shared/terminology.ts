@@ -23,21 +23,21 @@ export const ChapterAsArray: Array<string> = Object.keys(chapter).filter(key => 
 
 export const TERMINOLOGIES: Terminology[] = [
     {
-      id: 11,
+      id: 1,
       title: 'HTML',
       desc: 'HyperText Markup Language',
       chapter: chapter.HTML,
       creator: 'Me'
     },
     {
-      id: 12,
+      id: 2,
       title: 'Client-Server-Prinzip',
       desc: 'Lorem Ipsum etc',
       chapter: chapter.Web,
       creator: 'Me'
     },
     {
-      id: 13,
+      id: 3,
       title: 'CSS',
       desc: 'Cascading Style Sheets',
       chapter: chapter.CSS,

@@ -1,9 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { Terminology, chapter } from '../shared/terminology';
 import { TerminologyService } from '../shared/terminology.service';
 import {Location} from "@angular/common";
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { identifierModuleUrl } from '@angular/compiler';
 
 @Component({
@@ -12,20 +12,24 @@ import { identifierModuleUrl } from '@angular/compiler';
   styleUrls: ['./terminology-add.component.css']
 })
 export class TerminologyAddComponent implements OnInit {
+  @Input() terminology: Terminology | undefined;
 terminologies: Terminology [] = [];
 fieldsEmpty: Boolean = false;
 eChapter = chapter;
+isNew: Boolean = false;
 
 constructor(
   private terminologyService: TerminologyService,
   private location:Location,
   private router: Router,
-  private title: Title
+  private title: Title,
+  private route: ActivatedRoute,
 ) {}
 
-ngOnInit() {
-  this.getTerminologies();
-
+ngOnInit():void {
+  //this.getTerminologies();
+  this.isNew = this.route.snapshot.paramMap.get('id') === null;
+  this.getTerminology();
 }
 
 getTerminologies():void {
@@ -33,8 +37,14 @@ getTerminologies():void {
   .subscribe(terminologies => this.terminologies = terminologies);
 }
 
-goBack():void {
-  this.location.back();
+getTerminology(): void {
+  const id = this.route.snapshot.paramMap.get('id');
+  // check if id is null
+  if (id !== null) {
+    this.terminologyService
+      .getTerminology(parseInt(id))
+      .subscribe(terminology => (this.terminology = terminology));
+  }
 }
 
 save(

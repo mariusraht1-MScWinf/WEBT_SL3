@@ -6,7 +6,8 @@ import { TerminologyAddComponent } from './terminology-add/terminology-add.compo
 const routes: Routes = [
 { path:"", redirectTo:"/dashboard", pathMatch: "full" },
 {path: "terminology-add", component: TerminologyAddComponent},
-{path:"dashboard", component:DashboardComponent}
+{path:"dashboard", component:DashboardComponent},
+{path:"terminology-details/:id", component:TerminologyAddComponent}
 ];
 
 @NgModule({
