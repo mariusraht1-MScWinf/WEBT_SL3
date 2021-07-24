@@ -24,8 +24,8 @@
             <div class="form-group">
                 <label>Kapitel*:</label>
                 <div class="field">
-                <select #terminologyChapter>
-                   <option *ngFor="let type of eChapter| keyvalue" [ngValue]="type.value">{{type.value}}</option>
+                <select name="chapter" #terminologyChapter [(ngModel)]="terminology === undefined ? '' : terminology.chapter">
+                   <option *ngFor="let type of eChapter| keyvalue" [ngValue]="type.value" >{{type.value}}</option>
 
                    </select>
                 </div>

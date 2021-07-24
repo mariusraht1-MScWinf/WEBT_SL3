@@ -58,21 +58,25 @@ save(
       this.fieldsEmpty = true;
       return;
     }
-
+    if (this.isNew) {
     this.terminologyService
     .addTerminology({
       title,
       desc,
       chapter,
       creator,
-          } as Terminology).subscribe(terminology => {this.terminologies.push(terminology);  })
-          this.router.navigate(['/dashboard']);
+          } as Terminology).subscribe(terminology => {this.terminologies.push(terminology); this.router.navigate(['/dashboard'])  })
+
         }
 
+      else { this.terminologyService.updateTerminology(this.terminology as Terminology).subscribe(()=> this.router.navigate(['/dashboard']));
+
+
+      }
 
 
 }
-
+}
 
 
 
