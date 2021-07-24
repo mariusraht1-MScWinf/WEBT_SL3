@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { Terminology } from '../shared/terminology';
 import { TerminologyService } from '../shared/terminology.service';
-
+import {Location} from "@angular/common";
 
 @Component({
   selector: 'app-terminology-add',
@@ -11,24 +11,35 @@ import { TerminologyService } from '../shared/terminology.service';
 })
 export class TerminologyAddComponent implements OnInit {
 terminologies: Terminology [] = [];
-fieldsEmpty: Boolean = false;  
+fieldsEmpty: Boolean = false;
 
 constructor(
   private terminologyService: TerminologyService,
+  private location:Location,
   private title: Title
 ) {}
 
 ngOnInit() {
+  this.getTerminologies();
 
 }
 
-sichern(
+getTerminologies():void {
+  this.terminologyService.getTerminologies()
+  .subscribe(terminologies => this.terminologies = terminologies);
+}
+
+goBack():void {
+  this.location.back();
+}
+
+save(
   title: string,
   desc: string,
   chapter: string,
   creator: string
   ): void {
-    
+
     if (!title|| !desc || !chapter|| !creator) {
       this.fieldsEmpty = true;
       return;
@@ -40,16 +51,18 @@ sichern(
       desc,
       chapter,
       creator,
-          } as Terminology)
-  
+          } as Terminology).subscribe(terminology => {this.terminologies.push(terminology); this.goBack()})
+
+        }
+
+
+
 }
 
-}
 
 
 
 
-    
 
 
 

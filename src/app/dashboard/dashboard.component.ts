@@ -8,7 +8,7 @@ import { TerminologyService } from '../shared/terminology.service';
   styleUrls: ['./dashboard.component.css'],
 })
 export class DashboardComponent implements OnInit {
-  terminologies: Terminology[] = TERMINOLOGIES;
+  terminologies: Terminology[] = []; // TERMINOLOGIES;
   selectedTerminology: Terminology | undefined;
 
   constructor(private ts: TerminologyService) {}
@@ -17,5 +17,15 @@ export class DashboardComponent implements OnInit {
     this.selectedTerminology = terminology;
   }
 
-  ngOnInit(): void {}
+  ngOnInit() {
+    this.getTerminologies();
+  }
+  getTerminologies():void {
+    this.ts.getTerminologies()
+    .subscribe(terminologies => this.terminologies = terminologies);
+  }
+  delete(terminology: Terminology):void{
+    this.terminologies = this.terminologies.filter ( l => l !== terminology);
+    this.ts.deleteTerminology(terminology).subscribe();
+  }
 }

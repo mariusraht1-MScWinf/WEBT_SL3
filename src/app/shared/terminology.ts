@@ -1,6 +1,6 @@
 
 export interface Terminology {
-    id: string,
+    id: number,
     title: string,
     desc: string,
     chapter: chapter,
@@ -22,21 +22,21 @@ export enum chapter {
 
 export const TERMINOLOGIES: Terminology[] = [
     {
-      id: 'abc',
+      id: 11,
       title: 'HTML',
       desc: 'HyperText Markup Language',
       chapter: chapter.HTML,
       creator: 'Me'
     },
     {
-      id: 'def',
+      id: 12,
       title: 'Client-Server-Prinzip',
       desc: 'Lorem Ipsum etc',
       chapter: chapter.Web,
       creator: 'Me'
     },
     {
-      id: 'ghi',
+      id: 13,
       title: 'CSS',
       desc: 'Cascading Style Sheets',
       chapter: chapter.CSS,
