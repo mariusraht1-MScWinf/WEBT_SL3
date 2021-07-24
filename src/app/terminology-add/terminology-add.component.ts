@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Title } from '@angular/platform-browser';
-import { Terminology, chapter } from '../shared/terminology';
+import { Terminology, chapter, ChapterAsArray } from '../shared/terminology';
 import { TerminologyService } from '../shared/terminology.service';
 import {Location} from "@angular/common";
 import { ActivatedRoute, Router } from '@angular/router';
@@ -17,6 +17,7 @@ terminologies: Terminology [] = [];
 fieldsEmpty: Boolean = false;
 eChapter = chapter;
 isNew: Boolean = false;
+chaptersAsArray = ChapterAsArray;
 
 constructor(
   private terminologyService: TerminologyService,
@@ -53,12 +54,13 @@ save(
   chapter: string,
   creator: string
   ): void {
-
+  console.log(chapter)
     if (!title|| !desc || !chapter|| !creator) {
       this.fieldsEmpty = true;
       return;
     }
     if (this.isNew) {
+    chapter = chapter.split(": " )[1]
     this.terminologyService
     .addTerminology({
       title,
