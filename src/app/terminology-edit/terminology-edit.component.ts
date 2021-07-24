@@ -7,13 +7,12 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { identifierModuleUrl } from '@angular/compiler';
 
 @Component({
-  selector: 'app-terminology-add',
-  templateUrl: './terminology-add.component.html',
-  styleUrls: ['./terminology-add.component.css']
+  selector: 'app-terminology-edit',
+  templateUrl: './terminology-edit.component.html',
+  styleUrls: ['./terminology-edit.component.css']
 })
-export class TerminologyAddComponent implements OnInit {
+export class TerminologyEditComponent implements OnInit {
   @Input() terminology: Terminology | undefined;
-terminologies: Terminology [] = [];
 fieldsEmpty: Boolean = false;
 eChapter = chapter;
 
@@ -26,32 +25,28 @@ constructor(
 ) {}
 
 ngOnInit():void {
-
+  this.getTerminology();
 }
 
-getTerminologies():void {
-  this.terminologyService.getTerminologies()
-  .subscribe(terminologies => this.terminologies = terminologies);
+getTerminology(): void {
+  const id = this.route.snapshot.paramMap.get('id');
+  // check if id is null
+  if (id !== null) {
+    this.terminologyService
+      .getTerminology(parseInt(id))
+      .subscribe(terminology => (this.terminology = terminology));
+  }
 }
 
-save(
-  title: string,
-  desc: string,
-  chapter: string,
-  creator: string
-  ): void {
-    if (!title|| !desc || !chapter|| !creator) {
+save(): void {
+    if (this.terminology) {
+    if (!this.terminology.title|| !this.terminology.desc || !this.terminology.chapter|| !this.terminology.creator) {
       this.fieldsEmpty = true;
       return;
     }
+      this.terminologyService.updateTerminology(this.terminology as Terminology).subscribe(()=> this.router.navigate(['/dashboard']));
+    }
 
-    this.terminologyService
-    .addTerminology({
-      title,
-      desc,
-      chapter,
-      creator,
-          } as Terminology).subscribe(terminology => {this.terminologies.push(terminology); this.router.navigate(['/dashboard'])  })
   }
 }
 

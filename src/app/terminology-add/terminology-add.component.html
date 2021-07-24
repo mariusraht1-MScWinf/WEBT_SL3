@@ -1,33 +1,32 @@
 
 <form #termForm="ngForm">
-    <div style="padding: 50px;">
-        <h4> Eintrag hinzufügen/ändern</h4>
+    <div>
+        <h4> Eintrag hinzufügen</h4>
         <div>
             <div class="form-group">
                 <label>Fachbegriff*:</label>
                 <div class="field">
-                <input name="title" #terminologyTitle placeholder="Fachbegriff" [(ngModel)]="terminology === undefined ? '' : terminology.title" />
+                <input name="title" #terminologyTitle placeholder="Fachbegriff" />
             </div>
         </div>
             <div class="form-group">
                 <label>Beschreibung*:</label>
                  <div class="field">
-                  <input name ="desc" #terminologyDesc placeholder="Beschreibung"  [(ngModel)]="terminology === undefined ? '' : terminology.desc" />
+                  <input name ="desc" #terminologyDesc placeholder="Beschreibung" />
                 </div>
              </div>
             <div class="form-group">
                 <label>Name des Autors*:</label>
                 <div class="field">
-                <input name = "creator" #terminologyCreator placeholder="Name des Autors"  [(ngModel)]="terminology === undefined ? '' : terminology.creator"/>
+                <input name = "creator" #terminologyCreator placeholder="Name des Autors"/>
                 </div>
             </div>
             <div class="form-group">
                 <label>Kapitel*:</label>
                 <div class="field">
-                <select name="chapter" #terminologyChapter [(ngModel)]="terminology === undefined ? '' : terminology.chapter">
-                   <option *ngFor="let type of eChapter| keyvalue" [ngValue]="type.value" >{{type.value}}</option>
-
-                   </select>
+                   <select  name="chapter" #terminologyChapter >
+                    <option *ngFor="let type of eChapter| keyvalue" [value]="type.value">{{type.value}}</option>
+                  </select>
                 </div>
             </div>
          </div>

@@ -11,6 +11,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { TerminologyComponent } from './terminology/terminology.component';
 import { TerminologyAddComponent } from './terminology-add/terminology-add.component';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { TerminologyEditComponent } from './terminology-edit/terminology-edit.component';
 
 
 @NgModule({
@@ -20,6 +21,7 @@ import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
     DashboardComponent,
     TerminologyComponent,
     TerminologyAddComponent,
+    TerminologyEditComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, ReactiveFormsModule, HttpClientModule,
   HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService,{dataEncapsulation:false})],

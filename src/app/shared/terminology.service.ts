@@ -41,7 +41,7 @@ export class TerminologyService {
   }
 
   updateTerminology (terminology: Terminology): Observable<Terminology> {
-    return this.http.post<Terminology>(this.terminologyUrl, terminology, httpOptions)
+    return this.http.put<Terminology>(this.terminologyUrl, terminology, httpOptions)
     .pipe(catchError(this.handleError<Terminology>('updateTerminology')))
   }
 
