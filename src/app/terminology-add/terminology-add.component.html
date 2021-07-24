@@ -1,8 +1,8 @@
 
 <form #termForm="ngForm">
     <div style="padding: 50px;">
-        <h4 style="text-align:left"> Eintrag hinzufügen/ändern</h4>
-        <div style="text-align:left;">
+        <h4> Eintrag hinzufügen/ändern</h4>
+        <div>
             <div class="form-group">
                 <label>Fachbegriff*:</label>
                 <div class="field">
@@ -25,7 +25,6 @@
                 <label>Kapitel*:</label>
                 <div class="field">
                 <select #terminologyChapter>
-                  <option [ngValue]="null">Select one...</option>
                    <option *ngFor="let type of eChapter| keyvalue" [ngValue]="type.value">{{type.value}}</option>
 
                    </select>
@@ -38,7 +37,8 @@
             terminologyChapter.value,
             terminologyCreator.value )">Sichern
          </button>
-         <button type="button" mdbBtn color="success" mdbWavesEffect *ngIf="fieldsEmpty==true">Abbrechen</button>
+         <button type="button" mdbBtn color="success" mdbWavesEffect routerLink="/dashboard"> Abbrechen</button>
+         <p style="color:red" *ngIf="fieldsEmpty==true">Bitte fülle alle Felder aus.</p>
     </div>
 
 </form>

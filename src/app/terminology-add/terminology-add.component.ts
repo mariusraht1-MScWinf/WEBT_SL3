@@ -3,6 +3,7 @@ import { Title } from '@angular/platform-browser';
 import { Terminology, chapter } from '../shared/terminology';
 import { TerminologyService } from '../shared/terminology.service';
 import {Location} from "@angular/common";
+import { Router } from '@angular/router';
 import { identifierModuleUrl } from '@angular/compiler';
 
 @Component({
@@ -18,6 +19,7 @@ eChapter = chapter;
 constructor(
   private terminologyService: TerminologyService,
   private location:Location,
+  private router: Router,
   private title: Title
 ) {}
 
@@ -53,8 +55,8 @@ save(
       desc,
       chapter,
       creator,
-          } as Terminology).subscribe(terminology => {this.terminologies.push(terminology); this.goBack()})
-
+          } as Terminology).subscribe(terminology => {this.terminologies.push(terminology);  })
+          this.router.navigate(['/dashboard']);
         }
 
 
