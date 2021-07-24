@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Terminology } from './terminology';
+import { Terminology, TERMINOLOGIES } from './terminology';
 import {InMemoryDbService} from 'angular-in-memory-web-api';
 
 @Injectable({
@@ -7,7 +7,7 @@ import {InMemoryDbService} from 'angular-in-memory-web-api';
 })
 export class InMemoryDataService implements InMemoryDbService {
   createDb() {
-    const terminologies: Terminology [] = [];
+    const terminologies: Terminology [] = TERMINOLOGIES;
     return {terminologies};
   }
   genId(terminologies:Terminology[]): number {

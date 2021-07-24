@@ -14,11 +14,11 @@ const httpOptions = {
 export class TerminologyService {
   //addTerminology: any;
   constructor(private http: HttpClient) {
-    this.sortTerminologies();
+    //this.sortTerminologies();
   }
   private terminologyUrl = 'api/terminologies';
   // private data store to save current Terminologies
-  private terminologyData = TERMINOLOGIES;
+  //private terminologyData = TERMINOLOGIES;
   // private Observer to push changes with .next()
   private terminologyObs = new Subject<Terminology[]>();
 
@@ -27,7 +27,9 @@ export class TerminologyService {
 
   // return Observable to compontents that want to subscribe
   getTerminologies(): Observable<Terminology[]> {
-    return this.http.get<Terminology[]>(this.terminologyUrl)
+    return this.http.get<Terminology[]>(this.terminologyUrl).pipe(tap(results => {results.sort(function (A,B){
+      return (A.chapter < B.chapter) ? -1 : (A.chapter> B.chapter) ? 1 :(A.title<B.title)? -1: 1;
+    })}))
     .pipe(catchError(this.handleError('getTerminologies', [])));
   }
 
@@ -47,21 +49,21 @@ export class TerminologyService {
     .pipe(catchError(this.handleError<Terminology>('addTerminology')))
   }
 
-  private sortTerminologies() {
+ /* private sortTerminologies() {
     console.log(this.terminologyData)
     this.terminologyData.sort(function (A,B){
       return (A.chapter < B.chapter) ? -1 : (A.chapter> B.chapter) ? 1 :0;
     })
     console.log(this.terminologyData)
-  }
+  } */
 
 
   // push entry to private data store and send state to subscribers
-  addEntry(term: Terminology) {
+  /*addEntry(term: Terminology) {
     this.terminologyData.push(term);
     this.sortTerminologies();
     this.terminologyObs.next(this.terminologyData);
-  }
+  } */
 
   private handleError<T> (operation ='operation', result?:T) {
     return (error: any):Observable<T> => {
