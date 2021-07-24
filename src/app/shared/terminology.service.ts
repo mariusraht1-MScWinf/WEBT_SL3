@@ -14,9 +14,9 @@ const httpOptions = {
 export class TerminologyService {
   //addTerminology: any;
   constructor(private http: HttpClient) {
-    //this.sortTerminologies();
   }
   private terminologyUrl = 'api/terminologies';
+
   // private data store to save current Terminologies
   //private terminologyData = TERMINOLOGIES;
   // private Observer to push changes with .next()

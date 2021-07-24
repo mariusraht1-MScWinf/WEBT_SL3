@@ -7,7 +7,7 @@ import {InMemoryDbService} from 'angular-in-memory-web-api';
 })
 export class InMemoryDataService implements InMemoryDbService {
   createDb() {
-    const terminologies: Terminology [] = TERMINOLOGIES;
+    const terminologies: Terminology [] = [];//TERMINOLOGIES;
     return {terminologies};
   }
   genId(terminologies:Terminology[]): number {

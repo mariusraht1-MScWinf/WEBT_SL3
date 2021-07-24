@@ -10,7 +10,7 @@ import { HeaderComponent } from './header/header.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { TerminologyComponent } from './terminology/terminology.component';
 import { TerminologyAddComponent } from './terminology-add/terminology-add.component';
-import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
+//import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api'; für Aufgabe 1
 import { TerminologyEditComponent } from './terminology-edit/terminology-edit.component';
 
 
@@ -24,7 +24,8 @@ import { TerminologyEditComponent } from './terminology-edit/terminology-edit.co
     TerminologyEditComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, ReactiveFormsModule, HttpClientModule,
-  HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService,{dataEncapsulation:false})],
+  //HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService,{dataEncapsulation:false}) für Aufgabe 1
+],
   providers: [],
   bootstrap: [AppComponent],
 })

@@ -30,13 +30,13 @@
                 </div>
             </div>
          </div>
-         <button type="button" mdbBtn color="success" mdbWavesEffect (click)="save(
+         <button type="button" class="btn btn-secondary" mdbBtn color="success" mdbWavesEffect (click)="save(
             terminologyTitle.value,
             terminologyDesc.value,
             terminologyChapter.value,
             terminologyCreator.value )">Sichern
          </button>
-         <button type="button" mdbBtn color="success" mdbWavesEffect routerLink="/dashboard"> Abbrechen</button>
+         <button type="button" class="btn btn-secondary" mdbBtn color="success" mdbWavesEffect routerLink="/dashboard"> Abbrechen</button>
          <p style="color:red" *ngIf="fieldsEmpty==true">Bitte fülle alle Felder aus.</p>
     </div>
 
