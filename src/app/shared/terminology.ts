@@ -19,6 +19,7 @@ export enum chapter {
     CMS_LMS = 'CMS, LMS, ...',
     END = 'SEO, Sicherheit, Geschichte ...'
 }
+export const ChapterAsArray: Array<string> = Object.keys(chapter).filter(key => isNaN(+key));
 
 export const TERMINOLOGIES: Terminology[] = [
     {

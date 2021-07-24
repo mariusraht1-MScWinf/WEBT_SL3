@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
-import { Terminology } from '../shared/terminology';
+import { Terminology, chapter } from '../shared/terminology';
 import { TerminologyService } from '../shared/terminology.service';
 import {Location} from "@angular/common";
+import { identifierModuleUrl } from '@angular/compiler';
 
 @Component({
   selector: 'app-terminology-add',
@@ -12,6 +13,7 @@ import {Location} from "@angular/common";
 export class TerminologyAddComponent implements OnInit {
 terminologies: Terminology [] = [];
 fieldsEmpty: Boolean = false;
+eChapter = chapter;
 
 constructor(
   private terminologyService: TerminologyService,

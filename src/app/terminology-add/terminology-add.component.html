@@ -24,15 +24,19 @@
             <div class="form-group">
                 <label>Kapitel*:</label>
                 <div class="field">
-                <input #terminologyChapter placeholder="Kapitel" />
+                <select #terminologyChapter>
+                  <option [ngValue]="null">Select one...</option>
+                   <option *ngFor="let type of eChapter| keyvalue" [ngValue]="type.value">{{type.value}}</option>
+
+                   </select>
                 </div>
             </div>
          </div>
          <button type="button" mdbBtn color="success" mdbWavesEffect (click)="save(
             terminologyTitle.value,
             terminologyDesc.value,
-            terminologyCreator.value,
-            terminologyChapter.value )">Sichern
+            terminologyChapter.value,
+            terminologyCreator.value )">Sichern
          </button>
          <button type="button" mdbBtn color="success" mdbWavesEffect *ngIf="fieldsEmpty==true">Abbrechen</button>
     </div>
