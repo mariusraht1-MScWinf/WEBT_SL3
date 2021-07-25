@@ -18,19 +18,10 @@ let terminologySchema = new mongoose.Schema({
 
 const Terminology = mongoose.model('Terminology', terminologySchema );
 
-async function genId() {
-  let max = 0;
-  await Terminology.find().sort('-id').exec(function (err, item) {
-    max = item.id;
-  });
-
-  return await max + 1;
-}
 
 // Get all Terminologies
 app.get("/api/terminologies",  async (req,res) => {
 try {
-  console.log("HelloWord");
   var result = await Terminology.find().exec();
   res.send(result);
 } catch (error) {
@@ -38,12 +29,22 @@ try {
   res.status(500).send(error);
 }
 
+//get one terminology
+app.get("/api/terminologies/:id", async (req, res) => {
+  try {
+    var result = await Terminology.findOne({id: req.params.id}).exec();
+    res.send(result);
+  }
+  catch(error) {
+    res.status(500).send(error);
+  }
+} );
+
 });
 // add terminology
 app.post("/api/terminologies", async (req, res) => {
   try {
-    console.log(req.body);
-    var last = await Terminology.find().sort('-id').exec();
+    var last = await Terminology.find().sort('-id').limit(1).exec();
     var nextId = last === undefined ? 1 : last[0].id + 1;
     req.body["id"] = nextId;
     var terminology = new Terminology(req.body);
@@ -56,9 +57,9 @@ app.post("/api/terminologies", async (req, res) => {
 } );
 
 // update terminology
-app.put("/api/terminologies/:id", async (req, res) => {
+app.put("/api/terminologies", async (req, res) => {
   try {
-    var result = await Terminology.findByIdAndUpdate(req.params.id, req.body).exec();
+    var result = await Terminology.findOneAndUpdate( {id: req.body.id}, req.body).exec();
     res.send(result);
   }
   catch(error) {
@@ -68,7 +69,7 @@ app.put("/api/terminologies/:id", async (req, res) => {
 // delete terminology
 app.delete("/api/terminologies/:id", async (req, res) => {
   try {
-    var result = await Terminology.deleteOne({_id:req.params.id}).exec();
+    var result = await Terminology.deleteOne({id:req.params.id}).exec();
     res.send(result);
   }
   catch(error) {
@@ -76,16 +77,7 @@ app.delete("/api/terminologies/:id", async (req, res) => {
   }
 } );
 
-//get one terminology
-app.get("/api/terminologies/:id", async (req, res) => {
-  try {
-    var result = await Terminology.findById(req.params.id).exec();
-    res.send(result);
-  }
-  catch(error) {
-    res.status(500).send(error);
-  }
-} );
+
 
 app.listen(port, () => {
   console.log(`TL3 backend app listening at http://localhost:${port}`);

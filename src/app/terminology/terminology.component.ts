@@ -15,7 +15,7 @@ export class TerminologyComponent implements OnInit {
 
 
   ngOnInit() {
-    this.getTerminologies();
+    //this.getTerminologies();
   }
 
   getTerminologies():void {
