@@ -5,14 +5,14 @@ import { TerminologyAddComponent } from './terminology-add/terminology-add.compo
 import { TerminologyEditComponent } from './terminology-edit/terminology-edit.component';
 
 const routes: Routes = [
-{ path:"", redirectTo:"/dashboard", pathMatch: "full" },
-{path: "terminology-add", component: TerminologyAddComponent},
-{path:"dashboard", component:DashboardComponent},
-{path:"terminology-edit/:id", component:TerminologyEditComponent}
+  { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
+  { path: 'terminology-add', component: TerminologyAddComponent },
+  { path: 'dashboard', component: DashboardComponent },
+  { path: 'terminology-edit/:id', component: TerminologyEditComponent },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

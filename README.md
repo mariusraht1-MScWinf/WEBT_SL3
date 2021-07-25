@@ -14,16 +14,16 @@ Run `ng generate component component-name` to generate a new component. You can 
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
 
-
-
 ## Components
-* Terminologie-Objekt
-* Kapitel
-* Übersichtsseite
-* Erstellungsseite
-* Änderungsseite
-* Header (Logo + Navigation)
-* 
 
-## Remarks 
+- Terminologie-Objekt
+- Kapitel
+- Übersichtsseite
+- Erstellungsseite
+- Änderungsseite
+- Header (Logo + Navigation)
+-
+
+## Remarks
+
 We decided to split up the create and the edit component (although it means twice the maintenance work). We were not able to handle the enum dropdown: on the one hand, on creating, the dropdown uses strings as values. On the other hand, on editing, two way binding using ngModel can handle enums correctly. The consequence was that both ways could not be consolidated in one component.

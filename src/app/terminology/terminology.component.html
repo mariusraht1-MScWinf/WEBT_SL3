@@ -1,9 +1,16 @@
-
-    <div class="row" *ngIf="terminology" [style.background-color]="chapterColor(terminology.chapter)">
-      <div class="col">{{ terminology.chapter }}</div>
-      <div class="col">{{ terminology.title }}</div>
-      <div class="col">{{ terminology.desc }}</div>
-      <div class="col">{{ terminology.creator }}</div>
-      <div class="col"> <a  routerLink="/terminology-edit/{{terminology.id}}"> Editieren</a><button type = "button"  (click)=delete(terminology) class="btn btn-danger">&times; </button></div>
-    </div>
-
+<div
+  class="row"
+  *ngIf="terminology"
+  [style.background-color]="chapterColor(terminology.chapter)"
+>
+  <div class="col">{{ terminology.chapter }}</div>
+  <div class="col">{{ terminology.title }}</div>
+  <div class="col">{{ terminology.desc }}</div>
+  <div class="col">{{ terminology.creator }}</div>
+  <div class="col">
+    <a routerLink="/terminology-edit/{{ terminology.id }}"> Editieren</a
+    ><button type="button" (click)="delete(terminology)" class="btn btn-danger">
+      &times;
+    </button>
+  </div>
+</div>

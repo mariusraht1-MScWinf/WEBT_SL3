@@ -13,7 +13,6 @@ import { TerminologyAddComponent } from './terminology-add/terminology-add.compo
 //import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api'; für Aufgabe 1
 import { TerminologyEditComponent } from './terminology-edit/terminology-edit.component';
 
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,9 +22,14 @@ import { TerminologyEditComponent } from './terminology-edit/terminology-edit.co
     TerminologyAddComponent,
     TerminologyEditComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, FormsModule, ReactiveFormsModule, HttpClientModule,
-  //HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService,{dataEncapsulation:false}) für Aufgabe 1
-],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule,
+    //HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService,{dataEncapsulation:false}) für Aufgabe 1
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })

@@ -12,7 +12,7 @@ export class DashboardComponent implements OnInit {
   selectedTerminology: Terminology | undefined;
 
   constructor(private ts: TerminologyService) {
-    ts.currentTerminology.subscribe(()=> this.getTerminologies());
+    ts.currentTerminology.subscribe(() => this.getTerminologies());
   }
 
   onSelect(terminology: Terminology): void {
@@ -22,12 +22,13 @@ export class DashboardComponent implements OnInit {
   ngOnInit() {
     this.getTerminologies();
   }
-  getTerminologies():void {
-    this.ts.getTerminologies()
-    .subscribe(terminologies => this.terminologies = terminologies);
+  getTerminologies(): void {
+    this.ts
+      .getTerminologies()
+      .subscribe((terminologies) => (this.terminologies = terminologies));
   }
-  delete(terminology: Terminology):void{
-    this.terminologies = this.terminologies.filter ( l => l !== terminology);
+  delete(terminology: Terminology): void {
+    this.terminologies = this.terminologies.filter((l) => l !== terminology);
     this.ts.deleteTerminology(terminology).subscribe();
   }
 }

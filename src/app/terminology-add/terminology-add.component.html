@@ -1,43 +1,72 @@
-
 <form #termForm="ngForm">
+  <div>
+    <h4>Eintrag hinzufügen</h4>
     <div>
-        <h4> Eintrag hinzufügen</h4>
-        <div>
-            <div class="form-group">
-                <label>Fachbegriff*:</label>
-                <div class="field">
-                <input name="title" #terminologyTitle placeholder="Fachbegriff" />
-            </div>
+      <div class="form-group">
+        <label>Fachbegriff*:</label>
+        <div class="field">
+          <input name="title" #terminologyTitle placeholder="Fachbegriff" />
         </div>
-            <div class="form-group">
-                <label>Beschreibung*:</label>
-                 <div class="field">
-                  <input name ="desc" #terminologyDesc placeholder="Beschreibung" />
-                </div>
-             </div>
-            <div class="form-group">
-                <label>Name des Autors*:</label>
-                <div class="field">
-                <input name = "creator" #terminologyCreator placeholder="Name des Autors"/>
-                </div>
-            </div>
-            <div class="form-group">
-                <label>Kapitel*:</label>
-                <div class="field">
-                   <select  name="chapter" #terminologyChapter >
-                    <option *ngFor="let type of eChapter| keyvalue" [value]="type.value">{{type.value}}</option>
-                  </select>
-                </div>
-            </div>
-         </div>
-         <button type="button" class="btn btn-secondary" mdbBtn color="success" mdbWavesEffect (click)="save(
-            terminologyTitle.value,
-            terminologyDesc.value,
-            terminologyChapter.value,
-            terminologyCreator.value )">Sichern
-         </button>
-         <button type="button" class="btn btn-secondary" mdbBtn color="success" mdbWavesEffect routerLink="/dashboard"> Abbrechen</button>
-         <p style="color:red" *ngIf="fieldsEmpty==true">Bitte fülle alle Felder aus.</p>
+      </div>
+      <div class="form-group">
+        <label>Beschreibung*:</label>
+        <div class="field">
+          <input name="desc" #terminologyDesc placeholder="Beschreibung" />
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Name des Autors*:</label>
+        <div class="field">
+          <input
+            name="creator"
+            #terminologyCreator
+            placeholder="Name des Autors"
+          />
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Kapitel*:</label>
+        <div class="field">
+          <select name="chapter" #terminologyChapter>
+            <option
+              *ngFor="let type of eChapter | keyvalue"
+              [value]="type.value"
+            >
+              {{ type.value }}
+            </option>
+          </select>
+        </div>
+      </div>
     </div>
-
+    <button
+      type="button"
+      class="btn btn-secondary"
+      mdbBtn
+      color="success"
+      mdbWavesEffect
+      (click)="
+        save(
+          terminologyTitle.value,
+          terminologyDesc.value,
+          terminologyChapter.value,
+          terminologyCreator.value
+        )
+      "
+    >
+      Sichern
+    </button>
+    <button
+      type="button"
+      class="btn btn-secondary"
+      mdbBtn
+      color="success"
+      mdbWavesEffect
+      routerLink="/dashboard"
+    >
+      Abbrechen
+    </button>
+    <p style="color: red" *ngIf="fieldsEmpty == true">
+      Bitte fülle alle Felder aus.
+    </p>
+  </div>
 </form>

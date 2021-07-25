@@ -1,17 +1,14 @@
 <div style="padding: 15px">
-    <div class="container">
-      <div class="row bg-secondary text-light">
-        <div class="col">Kapitel</div>
-        <div class="col">Begriff</div>
-        <div class="col">Beschreibung</div>
-        <div class="col">Erstellt von</div>
-        <div class ="col"> Aktion </div>
-      </div>
+  <div class="container">
+    <div class="row bg-secondary text-light">
+      <div class="col">Kapitel</div>
+      <div class="col">Begriff</div>
+      <div class="col">Beschreibung</div>
+      <div class="col">Erstellt von</div>
+      <div class="col">Aktion</div>
+    </div>
     <div *ngFor="let t of terminologies" class="row">
-      <div class="terminology" [terminology]="t">
-
-
-      </div>
+      <div class="terminology" [terminology]="t"></div>
     </div>
   </div>
 </div>

@@ -11,55 +11,56 @@ import { Router } from '@angular/router';
 export class TerminologyComponent implements OnInit {
   @Input() terminology: Terminology | undefined;
   terminologies: Terminology[] = [];
-  constructor(private terminologyService: TerminologyService, private router: Router) {}
-
+  constructor(
+    private terminologyService: TerminologyService,
+    private router: Router
+  ) {}
 
   ngOnInit() {
     //this.getTerminologies();
   }
 
-  getTerminologies():void {
-    this.terminologyService.getTerminologies()
-    .subscribe(terminologies => this.terminologies = terminologies);
+  getTerminologies(): void {
+    this.terminologyService
+      .getTerminologies()
+      .subscribe((terminologies) => (this.terminologies = terminologies));
   }
 
-
-   chapterColor (chapterC: chapter): string {
+  chapterColor(chapterC: chapter): string {
     if (chapterC == chapter.Web) {
-      return "#fffde7"
+      return '#fffde7';
     }
     if (chapterC == chapter.HTML) {
-      return "#ff5722"
+      return '#ff5722';
     }
     if (chapterC == chapter.CSS) {
-      return "#9c27b0"
+      return '#9c27b0';
     }
     if (chapterC == chapter.Client_Side_Scripting_1) {
-      return "#e1f5fe"
+      return '#e1f5fe';
     }
     if (chapterC == chapter.Client_Side_Scripting_2) {
-      return "#e8f5e9"
+      return '#e8f5e9';
     }
     if (chapterC == chapter.SPA_Frameworks) {
-      return "#fafafa"
+      return '#fafafa';
     }
     if (chapterC == chapter.PHP) {
-      return "#f9fbe7"
+      return '#f9fbe7';
     }
-    if (chapterC == chapter.Server_Side_Frameworks){
-      return "#81c784"
+    if (chapterC == chapter.Server_Side_Frameworks) {
+      return '#81c784';
     }
     if (chapterC == chapter.CMS_LMS) {
-      return "#90caf9"
+      return '#90caf9';
+    } else {
+      return '#fff59d';
     }
-    else  {
-      return "#fff59d"
-    }
-
-
   }
   delete(terminology: Terminology): void {
-    this.terminologies = this.terminologies.filter(t => t !== terminology);
-    this.terminologyService.deleteTerminology(terminology).subscribe(()=>this.terminologyService.changeTerminology());
+    this.terminologies = this.terminologies.filter((t) => t !== terminology);
+    this.terminologyService
+      .deleteTerminology(terminology)
+      .subscribe(() => this.terminologyService.changeTerminology());
   }
 }

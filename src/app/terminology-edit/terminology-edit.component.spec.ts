@@ -8,9 +8,8 @@ describe('TerminologyEditComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ TerminologyEditComponent ]
-    })
-    .compileComponents();
+      declarations: [TerminologyEditComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {

@@ -8,9 +8,8 @@ describe('TerminologyAddComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ TerminologyAddComponent ]
-    })
-    .compileComponents();
+      declarations: [TerminologyAddComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {
