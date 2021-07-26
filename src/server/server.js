@@ -46,7 +46,7 @@ app.get("/api/terminologies", async (req, res) => {
 app.post("/api/terminologies", async (req, res) => {
   try {
     var last = await Terminology.find().sort("-id").limit(1).exec();
-    var nextId = last === undefined ? 1 : last[0].id + 1;
+    var nextId = last.length == 0 ? 1 : last[0].id + 1;
     req.body["id"] = nextId;
     var terminology = new Terminology(req.body);
     var result = terminology.save();
