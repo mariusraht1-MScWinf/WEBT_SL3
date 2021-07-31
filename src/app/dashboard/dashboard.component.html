@@ -1,14 +1,13 @@
-<div style="padding: 15px">
-  <div class="container">
-    <div class="row bg-secondary text-light">
-      <div class="col">Kapitel</div>
-      <div class="col">Begriff</div>
-      <div class="col">Beschreibung</div>
-      <div class="col">Erstellt von</div>
-      <div class="col">Aktion</div>
-    </div>
-    <div *ngFor="let t of terminologies" class="row">
-      <div class="terminology" [terminology]="t"></div>
-    </div>
+<div class="container pt-lg-2">
+  <div class="row header-fix sticky-top bg-secondary text-light">
+    <div class="col-2">Kapitel</div>
+    <div class="col-2">Begriff</div>
+    <div class="col-5">Beschreibung</div>
+    <div class="col-1">AutorIn</div>
+    <div class="col-1"></div>
+    <div class="col-1"></div>
+  </div>
+  <div *ngFor="let t of terminologies" class="row">
+    <div class="terminology" [terminology]="t"></div>
   </div>
 </div>

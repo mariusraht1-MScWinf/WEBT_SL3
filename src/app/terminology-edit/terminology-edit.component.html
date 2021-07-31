@@ -1,51 +1,59 @@
-<form #termForm="ngForm">
-  <div *ngIf="terminology">
-    <h4>Eintrag ändern</h4>
-    <div>
-      <div class="form-group">
-        <label>Fachbegriff*:</label>
-        <div class="field">
-          <input
-            name="title"
-            placeholder="Fachbegriff"
-            [(ngModel)]="terminology.title"
-          />
-        </div>
-      </div>
-      <div class="form-group">
-        <label>Beschreibung*:</label>
-        <div class="field">
-          <input
-            name="desc"
-            placeholder="Beschreibung"
-            [(ngModel)]="terminology.desc"
-          />
-        </div>
-      </div>
-      <div class="form-group">
-        <label>Name des Autors*:</label>
-        <div class="field">
-          <input
-            name="creator"
-            placeholder="Name des Autors"
-            [(ngModel)]="terminology.creator"
-          />
-        </div>
-      </div>
-      <div class="form-group">
-        <label>Kapitel*:</label>
-        <div class="field">
-          <select name="chapter" [(ngModel)]="terminology.chapter">
-            <option *ngFor="let type of eChapter | keyvalue">
-              {{ type.value }}
-            </option>
-          </select>
-        </div>
+<div class="container mt-2" *ngIf="terminology">
+  <h4>Eintrag hinzufügen/ändern</h4>
+  <div class="mt-3">
+    <div class="row form-group">
+      <label class="col-3">Fachbegriff*:</label>
+      <div class="col field">
+        <input
+          class="form-control"
+          name="title"
+          placeholder="Fachbegriff"
+          [(ngModel)]="terminology.title"
+        />
       </div>
     </div>
+    <div class="row form-group mt-2">
+      <label class="col-3">Beschreibung*:</label>
+      <div class="col field">
+        <textarea
+          class="form-control"
+          name="desc"
+          rows="5"
+          [(ngModel)]="terminology.desc"
+          placeholder="Beschreibung"
+        ></textarea>
+      </div>
+    </div>
+    <div class="row form-group mt-2">
+      <label class="col-3">Name des Autors*:</label>
+      <div class="col field">
+        <input
+          class="form-control"
+          name="creator"
+          [(ngModel)]="terminology.creator"
+          placeholder="Name des Autors"
+        />
+      </div>
+    </div>
+    <div class="row form-group mt-2">
+      <label class="col-3">Kapitel*:</label>
+      <div class="col field">
+        <select
+          class="form-select"
+          name="chapter"
+          [(ngModel)]="terminology.chapter"
+        >
+          <option *ngFor="let type of eChapter | keyvalue" [value]="type.value">
+            {{ type.value }}
+          </option>
+        </select>
+      </div>
+    </div>
+  </div>
+  <div class="mt-3">
     <button
       type="button"
-      class="btn btn-secondary"
+      class="me-3 col-md-2 btn btn-secondary"
       mdbBtn
       color="success"
       mdbWavesEffect
@@ -55,7 +63,7 @@
     </button>
     <button
       type="button"
-      class="btn btn-secondary"
+      class="col-md-2 btn btn-secondary"
       mdbBtn
       color="success"
       mdbWavesEffect
@@ -63,8 +71,8 @@
     >
       Abbrechen
     </button>
-    <p style="color: red" *ngIf="fieldsEmpty == true">
-      Bitte fülle alle Felder aus.
+    <p class="text-danger mt-3" *ngIf="fieldsEmpty == true">
+      <b>Fehler:</b> Bitte fülle alle Felder mit * aus.
     </p>
   </div>
-</form>
+</div>
