@@ -1,10 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Title } from '@angular/platform-browser';
-import { Terminology, chapter } from '../shared/terminology';
+import { Terminology, Chapter } from '../shared/terminology';
 import { TerminologyService } from '../shared/terminology.service';
-import { Location } from '@angular/common';
 import { ActivatedRoute, Router } from '@angular/router';
-import { identifierModuleUrl } from '@angular/compiler';
 
 @Component({
   selector: 'app-terminology-edit',
@@ -14,13 +11,11 @@ import { identifierModuleUrl } from '@angular/compiler';
 export class TerminologyEditComponent implements OnInit {
   @Input() terminology: Terminology | undefined;
   fieldsEmpty: Boolean = false;
-  eChapter = chapter;
+  eChapter = Chapter;
 
   constructor(
     private terminologyService: TerminologyService,
-    private location: Location,
     private router: Router,
-    private title: Title,
     private route: ActivatedRoute
   ) {}
 
@@ -30,28 +25,25 @@ export class TerminologyEditComponent implements OnInit {
 
   getTerminology(): void {
     const id = this.route.snapshot.paramMap.get('id');
-    // check if id is null
-    if (id !== null) {
-      this.terminologyService
-        .getTerminology(parseInt(id))
-        .subscribe((terminology) => (this.terminology = terminology));
-    }
+    if (!id) return;
+    this.terminologyService
+      .getTerminology(parseInt(id))
+      .subscribe((terminology) => (this.terminology = terminology));
   }
 
   save(): void {
-    if (this.terminology) {
-      if (
-        !this.terminology.title ||
-        !this.terminology.desc ||
-        !this.terminology.chapter ||
-        !this.terminology.creator
-      ) {
-        this.fieldsEmpty = true;
-        return;
-      }
-      this.terminologyService
-        .updateTerminology(this.terminology as Terminology)
-        .subscribe(() => this.router.navigate(['/dashboard']));
+    if (!this.terminology) return;
+    if (
+      !this.terminology.title ||
+      !this.terminology.desc ||
+      !this.terminology.chapter ||
+      !this.terminology.creator
+    ) {
+      this.fieldsEmpty = true;
+      return;
     }
+    this.terminologyService
+      .updateTerminology(this.terminology as Terminology)
+      .subscribe(() => this.router.navigate(['/dashboard']));
   }
 }
