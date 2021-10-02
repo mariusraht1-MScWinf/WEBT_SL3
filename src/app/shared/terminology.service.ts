@@ -33,22 +33,15 @@ export class TerminologyService {
       .get<Terminology[]>(this.terminologyUrl)
       .pipe(
         tap((results) => {
-          results.sort(function (A, B) {
-            return A.chapter < B.chapter
-              ? -1
-              : A.chapter > B.chapter
-              ? 1
-              : A.title < B.title
-              ? -1
-              : 1;
-          });
+          results.sort((A, B) =>
+            A.chapter < B.chapter || A.title < B.title ? -1 : 1
+          );
         })
       )
       .pipe(catchError(this.handleError('getTerminologies', [])));
   }
 
   getTerminology(id: number): Observable<Terminology> {
-    //const url = "${this.terminologyUrl}/${id}";
     const url = this.terminologyUrl + '/' + id;
     return this.http
       .get<Terminology>(url)
@@ -69,37 +62,20 @@ export class TerminologyService {
       .pipe(catchError(this.handleError<Terminology>('addTerminology')));
   }
 
-  /* private sortTerminologies() {
-    console.log(this.terminologyData)
-    this.terminologyData.sort(function (A,B){
-      return (A.chapter < B.chapter) ? -1 : (A.chapter> B.chapter) ? 1 :0;
-    })
-    console.log(this.terminologyData)
-  } */
-
-  // push entry to private data store and send state to subscribers
-  /*addEntry(term: Terminology) {
-    this.terminologyData.push(term);
-    this.sortTerminologies();
-    this.terminologyObs.next(this.terminologyData);
-  } */
-
   private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
       console.log(operation + 'failed: ' + error);
       return of(result as T);
     };
   }
+
   deleteTerminology(
     terminology: Terminology | number
   ): Observable<Terminology> {
     const id = typeof terminology === 'number' ? terminology : terminology.id;
-    //const url = '${this.terminologyUrl}/${id}';
     const url = this.terminologyUrl + '/' + id;
     return this.http
       .delete<Terminology>(url, httpOptions)
       .pipe(catchError(this.handleError<Terminology>('deleteTerminology')));
   }
 }
-
-// TBD: other functions like edit and delete

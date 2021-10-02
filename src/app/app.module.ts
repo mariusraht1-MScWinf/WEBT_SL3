@@ -8,8 +8,7 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { TerminologyComponent } from './terminology/terminology.component';
-import { TerminologyAddComponent } from './terminology-add/terminology-add.component';
-import { TerminologyEditComponent } from './terminology-edit/terminology-edit.component';
+import { TerminologyChangeComponent } from './terminology-change/terminology-change.component';
 
 @NgModule({
   declarations: [
@@ -17,8 +16,7 @@ import { TerminologyEditComponent } from './terminology-edit/terminology-edit.co
     HeaderComponent,
     DashboardComponent,
     TerminologyComponent,
-    TerminologyAddComponent,
-    TerminologyEditComponent,
+    TerminologyChangeComponent,
   ],
   imports: [
     BrowserModule,

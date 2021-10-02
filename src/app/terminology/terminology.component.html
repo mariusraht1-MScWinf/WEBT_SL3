@@ -8,7 +8,7 @@
   <div class="col-5 text-justify">{{ terminology.desc }}</div>
   <div class="col-1">{{ terminology.creator }}</div>
   <div class="col-1">
-    <a routerLink="/terminology-edit/{{ terminology.id }}"> Editieren</a>
+    <a routerLink="/terminology-change/{{ terminology.id }}"> Editieren</a>
   </div>
   <div class="col-1">
     <button type="button" (click)="delete(terminology)" class="btn btn-danger">X</button>
