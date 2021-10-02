@@ -4,8 +4,9 @@ const port = 3000;
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 let mongoose = require("mongoose");
-mongoose.connect("mongodb://vawi11:ielyromb@mongodb.l1n.de:27017/vawi11", {
+mongoose.connect("mongodb://localhost:27017", {
   useNewUrlParser: true,
+  useCreateIndex: true,
 });
 let db = mongoose.connection;
 db.once("open", () => {

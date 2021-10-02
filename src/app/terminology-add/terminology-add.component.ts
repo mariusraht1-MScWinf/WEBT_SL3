@@ -1,10 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Title } from '@angular/platform-browser';
-import { Terminology, chapter } from '../shared/terminology';
+import { Terminology, Chapter } from '../shared/terminology';
 import { TerminologyService } from '../shared/terminology.service';
-import { Location } from '@angular/common';
-import { ActivatedRoute, Router } from '@angular/router';
-import { identifierModuleUrl } from '@angular/compiler';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-terminology-add',
@@ -15,14 +12,11 @@ export class TerminologyAddComponent implements OnInit {
   @Input() terminology: Terminology | undefined;
   terminologies: Terminology[] = [];
   fieldsEmpty: Boolean = false;
-  eChapter = chapter;
+  eChapter = Chapter;
 
   constructor(
     private terminologyService: TerminologyService,
-    private location: Location,
-    private router: Router,
-    private title: Title,
-    private route: ActivatedRoute
+    private router: Router
   ) {}
 
   ngOnInit(): void {}

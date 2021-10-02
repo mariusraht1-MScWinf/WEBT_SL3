@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable, Subject, of } from 'rxjs';
-import { Terminology, TERMINOLOGIES } from './terminology';
+import { Terminology, Terminologies } from './terminology';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { catchError, map, tap } from 'rxjs/operators';
 

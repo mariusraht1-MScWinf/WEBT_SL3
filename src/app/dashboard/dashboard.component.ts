@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Terminology, TERMINOLOGIES } from '../shared/terminology';
+import { Terminology, Terminologies } from '../shared/terminology';
 import { TerminologyService } from '../shared/terminology.service';
 
 @Component({
