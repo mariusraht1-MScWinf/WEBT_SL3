@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Terminology, Terminologies } from '../shared/terminology';
+import { Terminology } from '../shared/terminology';
 import { TerminologyService } from '../shared/terminology.service';
 
 @Component({
@@ -8,7 +8,7 @@ import { TerminologyService } from '../shared/terminology.service';
   styleUrls: ['./dashboard.component.css'],
 })
 export class DashboardComponent implements OnInit {
-  terminologies: Terminology[] = []; // TERMINOLOGIES;
+  terminologies: Terminology[] = [];
   selectedTerminology: Terminology | undefined;
 
   constructor(private ts: TerminologyService) {
